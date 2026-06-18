@@ -40,13 +40,16 @@ export function LoginForm(): HTMLFormElement {
 
   form.addEventListener('submit', (e: Event) => {
     e.preventDefault()
+    const inputs = form.querySelectorAll<HTMLInputElement>('input:not([type="checkbox"])')
+    inputs.forEach((input) => input.classList.remove('border-red-500', 'focus:border-red-500'))
+
     const data = new FormData(form)
     const emailOrUser = data.get('emailOrUser')?.toString() ?? ''
     const password = data.get('password')?.toString() ?? ''
     const remember = data.get('remember') !== null
 
     if (!emailOrUser || !password) {
-      form.querySelectorAll<HTMLInputElement>('input:not([type="checkbox"])').forEach((input) => {
+      inputs.forEach((input) => {
         if (!input.value) input.classList.add('border-red-500', 'focus:border-red-500')
       })
       return

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source inline('border-red-500 focus:border-red-500');
 
 @theme {
   --color-bg: #0b0f0e;

@@ -1,4 +1,7 @@
 import './style.css'
-import { LoginPage } from './components/pages/LoginPage/LoginPage.ts'
+import { AuthLayout } from './components/templates/AuthLayout/AuthLayout.ts'
+import { LoginForm } from './components/organisms/LoginForm/LoginForm.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.appendChild(LoginPage())
+document.querySelector<HTMLDivElement>('#app')!.appendChild(
+  AuthLayout({ banner: '/banner-login.png', formEl: LoginForm() })
+)

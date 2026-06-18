@@ -1,6 +1,6 @@
 export interface InputProps {
   name: string
-  type?: string
+  type?: HTMLInputElement['type']
   placeholder?: string
   id?: string
 }
